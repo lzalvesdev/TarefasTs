@@ -1,10 +1,12 @@
 import { useState } from "react"
 import { ButtonLogin } from "./components/ButtonLogin"
 import { InputLogin } from "./components/InputLogin"
+import { useUsuarioLogado } from "../../shared/hooks"
 
 export const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const { nomeDoUsuario } = useUsuarioLogado();
 
   const handleEntrar = () => {
     console.log(email, password);
@@ -13,6 +15,7 @@ export const Login = () => {
   return (
     <>
       <form action="">
+        <p>{nomeDoUsuario}</p>
 
         <InputLogin
           label="Email"
